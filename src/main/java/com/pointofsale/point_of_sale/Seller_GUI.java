@@ -48,6 +48,8 @@ public class Seller_GUI extends javax.swing.JFrame {
     };
     private double totalSum = 0;
     private DecimalFormat df = new DecimalFormat("0.00");
+    private boolean testProductNotFound = false;
+    private boolean testInvalidBarCode = false;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -214,6 +216,7 @@ public class Seller_GUI extends javax.swing.JFrame {
             }
         } catch (InvalidBarCodeException | NumberFormatException ex) {
             System.out.println("Invalid bar-code!");
+            testInvalidBarCode = true;
             JOptionPane.showMessageDialog(rootPane, "Invalid bar-code", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_scanButtonActionPerformed
@@ -252,6 +255,7 @@ public class Seller_GUI extends javax.swing.JFrame {
             e.printStackTrace();
         } catch (ProductNotFoundException e) {
             System.out.println("Product not found!");
+            testProductNotFound = true;
             JOptionPane.showMessageDialog(rootPane, "Product not found", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -285,6 +289,14 @@ public class Seller_GUI extends javax.swing.JFrame {
         return (Article) model.get(0);
     }
 
+    public boolean getPNFFlag() {
+        return testProductNotFound;
+    }
+    
+    public boolean getIBFlag() {
+        return testInvalidBarCode;
+    }
+        
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
