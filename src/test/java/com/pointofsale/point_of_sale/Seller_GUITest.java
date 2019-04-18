@@ -5,9 +5,6 @@
  */
 package com.pointofsale.point_of_sale;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -15,8 +12,6 @@ import org.junit.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
-import org.junit.BeforeClass;
 
 /**
  * Simple tests for <code>Seller_GUI</code>.
@@ -25,11 +20,7 @@ import org.junit.BeforeClass;
 public class Seller_GUITest{
 
     private Seller_GUI seller;
-    private ConsoleOutputCapturer cos = new ConsoleOutputCapturer();
     private ResultSet rs;
-    private long wrongId = 1010101055656L;
-    private long rightId = 1234567890123L;
-    private Robot robot;
     
     @Before
     public void setUp() throws SQLException {
@@ -38,13 +29,7 @@ public class Seller_GUITest{
         seller.listOfArticles.add(new Article(123L, "Some", 0.12));
         seller.listOfArticles.add(new Article(456L, "Thing", 3.45));
         seller.listOfArticles.add(new Article(789L, "Here", 6.78));
-        
-        try {
-         robot = new Robot();   
-        } catch(AWTException e) {
-            System.out.println("What is this robot doing?!");
-            e.printStackTrace();
-        }
+
         */
     }
     
