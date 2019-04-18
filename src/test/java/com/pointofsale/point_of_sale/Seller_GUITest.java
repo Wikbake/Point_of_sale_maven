@@ -62,51 +62,25 @@ public class Seller_GUITest{
         seller.enterCode("789");
         assertEquals("0,79", seller.getSumTextArea());
     }
+    
+    @Test 
+    public void testProductNotFound() {
+        seller.enterCode("4545454545");
+        assertEquals(true, seller.getPNFFlag());
+    }
+    
+    @Test 
+    public void testInvalidBarCode() {
+        seller.enterCode("");
+        assertEquals(true, seller.getIBFlag());
+    }
 
 /*
-    @Test
-    public void testProductNotFound() {
-        seller.idEnter.setText("" + wrongId);
-        cos.start();
-        seller.scanActionPerformed(null);
-        String actual = cos.stop().trim();
-        assertEquals("Product not found!", actual);
-    }
-
-    @Test
-    public void testInvalidBarCode() {
-        seller.idEnter.setText("");
-        cos.start();
-        seller.scanActionPerformed(null);
-        String actual = cos.stop().trim();
-        assertEquals("Invalid bar-code!", actual);
-    }
-
-    @Test
-    public void testCheckerFoundId() {
-        seller.articleChecker(rightId);
-        assertEquals(1, seller.listArticlesJList.getComponentCount());
-    }
-
-    @Test
-    public void testAddToArticleList() {
-        seller.addToArticleList(123L, "Some", 0.12);
-        assertEquals(1, seller.listArticlesJList.getComponentCount());
-    }
-
     @Test
     public void testExit() {
         assertEquals(3, seller.listOfArticles.size());
         seller.exitActionPerformed(null);
         assertEquals(0, seller.listOfArticles.size());
-    }
-
-    @Test
-    public void testTotalSum() {
-        assertEquals(0, seller.totalSum, 0.00);
-        seller.addToArticleList(123L, "Some", 0.12);
-        seller.addToArticleList(456L, "Thing", 3.45);
-        assertEquals(3.57, seller.totalSum, 0.01);
     }
     */
 }
