@@ -39,9 +39,14 @@ public class Seller_GUI extends javax.swing.JFrame {
         this.pack();
     }
     
-    protected List<Article> listOfArticles = new ArrayList<>();
-    private DefaultListModel model = new DefaultListModel();
-    protected double totalSum = 0;
+    private List<Article> listOfArticles = new ArrayList<>();
+    private DefaultListModel model = new DefaultListModel() {
+        @Override
+        public Article get(int index) {
+            return listOfArticles.get(index);
+        }
+    };
+    private double totalSum = 0;
     private DecimalFormat df = new DecimalFormat("0.00");
 
     /**
@@ -265,6 +270,19 @@ public class Seller_GUI extends javax.swing.JFrame {
         for (Article a : listOfArticles)
             System.out.println(a.getName() + " " + a.getCost());
         System.out.println("Total cost: " + df.format(totalSum) + " zł");
+    }
+    
+    public void enterCode(String text) {
+        idEnter.setText(text);
+        scanButton.doClick();
+    }
+    
+    public String getSumTextArea() {
+        return sumTextArea.getText();
+    }
+    
+    public Article getAddedArticle() {
+        return (Article) model.get(0);
     }
 
     public static void main(String args[]) {
