@@ -55,35 +55,35 @@ public class MockResultSet {
 
         // mock rs.getString(columnName)
         doAnswer(invocation -> {
-            final String columnName = invocation.getArgumentAt(0, String.class);
+            final String columnName = invocation.getArgument(0, String.class);
             final int columnIndex = columnIndices.get(columnName);
             return data[rowIndex][columnIndex];
         }).when(rs).getString(anyString());
 
         // mock rs.getInt(columnName)
         doAnswer(invocation -> {
-            final String columnName = invocation.getArgumentAt(0, String.class);
+            final String columnName = invocation.getArgument(0, String.class);
             final int columnIndex = columnIndices.get(columnName);
             return (Integer) data[rowIndex][columnIndex];
         }).when(rs).getInt(anyString());
 
         // mock rs.getLong(columnName)
         doAnswer(invocation -> {
-            final String columnName = invocation.getArgumentAt(0, String.class);
+            final String columnName = invocation.getArgument(0, String.class);
             final int columnIndex = columnIndices.get(columnName);
             return  (Long) data[rowIndex][columnIndex];
         }).when(rs).getLong(anyString());
 
         // mock rs.getDouble(columnName)
         doAnswer(invocation -> {
-            final String columnName = invocation.getArgumentAt(0, String.class);
+            final String columnName = invocation.getArgument(0, String.class);
             final int columnIndex = columnIndices.get(columnName);
             return (Double) data[rowIndex][columnIndex];
         }).when(rs).getDouble(anyString());
 
         // mock rs.getObject(columnIndex)
         doAnswer(invocation -> {
-            final int index = invocation.getArgumentAt(0, Integer.class);
+            final int index = invocation.getArgument(0, Integer.class);
             return data[rowIndex][index - 1];
         }).when(rs).getObject(anyInt());
 
